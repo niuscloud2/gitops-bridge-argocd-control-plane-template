@@ -1,4 +1,3 @@
----
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -37,7 +36,6 @@ template:
       path: release
       repoURL: https://github.com/niuscloud2/microservices-demo.git
       targetRevision: main
-
     syncPolicy:
       automated: { }
       syncOptions:
