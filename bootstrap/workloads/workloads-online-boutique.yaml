@@ -11,7 +11,7 @@ spec:
           matchExpressions:
             - key: product_type
               operator: In
-              values: [ "services" ]
+              values: ["services"]
         values:
           destination: "ncgt-tools-sandbox-pe"
           project: "ncgt-tools-sandbox-pe-ncgt-services-alfheim-992382718984"
@@ -20,25 +20,25 @@ spec:
           matchExpressions:
             - key: product_type
               operator: NotIn
-              values: [ "services" ]
+              values: ["services"]
         values:
           destination: "ncgt-tools-alfheim-pe"
           project: "ncgt-tools-alfheim-pe-ncgt-multi-alfheim-992382718984"
-template:
-  metadata:
-    name: workloads-{{name}}-online-boutique
-  spec:
-    destination:
-      namespace: {{.values.destination}}
-      name: {{name}}
-    project: {{.values.project}}
-    source:
-      path: release
-      repoURL: https://github.com/niuscloud2/microservices-demo.git
-      targetRevision: main
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-      syncOptions:
-        - CreateNamespace=false
+  template:
+    metadata:
+      name: workloads-{{name}}-online-boutique
+    spec:
+      destination:
+        namespace: {{ values.destination }}
+        name: {{ name }}
+      project: {{ values.project }}
+      source:
+        path: release
+        repoURL: https://github.com/niuscloud2/microservices-demo.git
+        targetRevision: main
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=false
