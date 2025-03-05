@@ -37,6 +37,8 @@ template:
       repoURL: https://github.com/niuscloud2/microservices-demo.git
       targetRevision: main
     syncPolicy:
-      automated: { }
+      automated:
+        prune: true
+        selfHeal: true
       syncOptions:
         - CreateNamespace=false
